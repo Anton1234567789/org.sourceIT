@@ -2,84 +2,77 @@ package com.company;
 
 
 public class Fraction {
-    int  num, num1;
-    int znum, znum1;
-    int drob;
-    int sumCh;
-    int sumZn;
+    int  num;
+    int denum;
 
-    public String sumFraction(int chis,int z,int chis1,int z1){
-        sumCh = chis*z1 + chis1*z;
-        sumZn = z*z1;
-        System.out.print(chis+"/"+z+"+"+chis1+"/"+z1+"=");
-        System.out.println(sumCh+"/"+sumZn);
-        return sumCh+"/"+sumZn;
-    }
-    public String toDiv(int chis,int z,int chis1,int z1){
-               sumCh = chis * z1;
-        sumZn = z*chis1;
-        System.out.print(chis+"/"+z+"*"+z1+"/"+chis1+"=");
-        System.out.println(sumCh+"/"+sumZn);
-        return sumCh+"/"+sumZn;
+    public Fraction(int numerator, int denominator){
+        this.num = numerator;
+        this.denum = denominator;
     }
 
-    public String toMov(int chis,int z,int chis1,int z1){
-        sumCh = chis * chis1;
-        sumZn = z*z1;
-        System.out.print(chis+"/"+z+"*"+chis1+"/"+z1+"=");
-        System.out.println(sumCh+"/"+sumZn);
-        return sumCh+"/"+sumZn;
+    public int getNum() {
+        return num;
     }
-    public String toSub(int chis,int z,int chis1,int z1){
-        sumCh = chis*z1 - chis1*z;
-        sumZn = z*z1;
-        System.out.print(chis+"/"+z+"-"+chis1+"/"+z1+"=");
-        System.out.println(sumCh+"/"+sumZn);
-        return sumCh+"/"+sumZn;
+
+    public void setNum(int num) {
+        this.num = num;
     }
+
+    public int getZnum() {
+        return denum;
+    }
+
+    public void setZnum(int znum) {
+        this.denum = znum;
+    }
+
+    public Fraction add(Fraction first, Fraction second){
+        return new Fraction(first.getNum()*second.getZnum()+second.getNum()*first.getZnum(),first.getZnum()*second.getZnum());
+
+    }
+    public Fraction sub(Fraction a,Fraction b){
+        return new Fraction(a.getNum()*b.getZnum()-b.getNum()*a.getZnum(),a.getZnum()*b.getZnum());
+    }
+    public Fraction mov(Fraction first, Fraction second){
+        return new Fraction(first.getNum()*second.getNum(),first.getZnum()*second.getZnum());
+    }
+    public Fraction div(Fraction first,Fraction second){
+        return new Fraction(first.getNum()*second.getZnum(), first.getZnum()*second.getNum());
+    }
+    public double toDoubleSum(Fraction first,Fraction second){
+        double drob = (double)(first.getNum()*second.getZnum()+second.getNum()*first.getZnum())/(double)(first.getZnum()*second.getZnum());
+        return drob;
+    }
+    public double toDoubleSub(Fraction first, Fraction second){
+        double drob = (double)(first.getNum()*second.getZnum()-second.getNum()*first.getZnum())/(double)(first.getZnum()*second.getZnum());
+        return drob;
+    }
+    public double toDoubleMov(Fraction first, Fraction second){
+        double drob = (double)(first.getNum()*second.getNum())/(double)(first.getZnum()*second.getZnum());
+        return drob;
+    }
+    public double toDoubleDiv(Fraction first, Fraction second){
+        double drob = (double)(first.getNum()*second.getZnum())/(double)(first.getZnum()*second.getNum());
+        return drob;
+    }
+
 
     @Override
     public String toString() {
-        return "Fraction{" + sumCh +"/" + sumZn+'}';
+        return getNum()+"/" + getZnum();
     }
 
-    public double doDoubleSum(int chis, int z, int chis1, int z1){
-        num = chis;
-        znum = z;
-        num1 = chis1;
-        znum1=z1;
-        double drob = (double)(num*znum1+num1*znum)/(double)(znum*znum1);
-        System.out.println(num+"/"+znum +"+"+num1+"/"+znum1+"="+drob);
-        return drob;
-    }
+    public static void main(String[] args) {
+        Fraction first = new Fraction(3,4);
+        Fraction second = new Fraction(5,6);
+      System.out.println(first.toString()+"+"+second.toString()+"="+first.add(first,second));
+        System.out.println(first.toString()+"-"+second.toString()+"="+first.sub(first,second));
+       System.out.println(first.toString()+"*"+second.toString()+"="+first.mov(first,second));
+       System.out.println(first.toString()+":"+second.toString()+"="+first.div(first,second));
+       System.out.println(first.toString()+"+"+second.toString()+"="+first.toDoubleSum(first,second));
+       System.out.println(first.toString()+"-"+second.toString()+"="+first.toDoubleSub(first,second));
+       System.out.println(first.toString()+"*"+second.toString()+"="+first.toDoubleMov(first,second));
+       System.out.println(first.toString()+":"+second.toString()+"="+first.toDoubleDiv(first,second));
 
-    public double doDoubleDiv(int chis, int z, int chis1, int z1){
-        num = chis;
-        znum = z;
-        num1 = chis1;
-        znum1=z1;
-        double drob = (double)(num*znum1)/(double)(znum*num1);
-        System.out.println(num+"/"+znum +"*"+znum1+"/"+num1+"="+drob);
-        return drob;
     }
-    public double doDoubleMov(int chis, int z, int chis1, int z1){
-        num = chis;
-        znum = z;
-        num1 = chis1;
-        znum1=z1;
-        double drob = (double)(num*num1)/(double)(znum*znum1);
-        System.out.println(num+"/"+znum +"*"+num1+"/"+znum1+"="+drob);
-        return drob;
-    }
-
-    public double doDoubleSub(int chis, int z, int chis1, int z1){
-        num = chis;
-        znum = z;
-        num1 = chis1;
-        znum1=z1;
-        double drob = (double)(num*znum1-num1*znum)/(double)(znum*znum1);
-        System.out.println(num+"/"+znum +"-"+num1+"/"+znum1+"="+drob);
-        return drob;
-    }
-
 }

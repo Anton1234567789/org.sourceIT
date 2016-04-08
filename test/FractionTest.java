@@ -3,40 +3,41 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FractionTest {
-    private Fraction fraction = new Fraction();
+    private Fraction fraction = new Fraction(3,4);
+    private Fraction fraction1 = new Fraction(5,6);
 
     @Test
     public void testSum(){
-        Assert.assertEquals(fraction.sumFraction(3,5,5,7),46+"/"+35);
+        Assert.assertEquals(fraction.add(fraction,fraction1),new Fraction(38,24));
     }
-    @Test
-    public void testToDiv(){
-        Assert.assertEquals(fraction.toDiv(3,5,5,7),21+"/"+25);
 
+    @Test
+    public void testSub(){
+        Assert.assertEquals(fraction.sub(fraction,fraction1),new Fraction(-2,24));
     }
     @Test
-    public void testToMov(){
-        Assert.assertEquals(fraction.toMov(3,7,8,9),24+"/"+63);
+    public void testMov(){
+        Assert.assertEquals(fraction.mov(fraction,fraction1),new Fraction(15,24));
     }
     @Test
-    public void testToSub(){
-        Assert.assertEquals(fraction.toSub(3,9,5,6),-27+"/"+54);
+    public void testDiv(){
+        Assert.assertEquals(fraction.div(fraction,fraction1),new Fraction(18,20));
     }
     @Test
-    public void testToDoubleSum(){
-        Assert.assertEquals(fraction.doDoubleSum(3,5,5,7),1.3142857142857143);
+    public void testDoubleSum(){
+        Assert.assertEquals(fraction.toDoubleSum(fraction,fraction1), 1.5833333333333333);
     }
     @Test
-    public void testToDoubleDiv(){
-        Assert.assertEquals(fraction.doDoubleDiv(3,5,5,7),0.84);
+    public void testDoubleSub(){
+        Assert.assertEquals(fraction.toDoubleSub(fraction,fraction1), -0.08333333333333333);
     }
     @Test
-    public void testToDoubleMov(){
-        Assert.assertEquals(fraction.doDoubleMov(3,2,2,3),1.0);
+    public void testDoubleMov(){
+        Assert.assertEquals(fraction.toDoubleMov(fraction,fraction1), 0.625);
     }
     @Test
-    public void testToDoubleSub(){
-        Assert.assertEquals(fraction.doDoubleSub(3,5,7,3),-1.7333333333333334);
+    public void testDoubleDiv(){
+        Assert.assertEquals(fraction.toDoubleDiv(fraction,fraction1), 0.9);
     }
 
 }
