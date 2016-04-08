@@ -82,17 +82,4 @@ public class Fraction {
         return drob;
     }
 
- /* public static void main(String[] args) {
-      Fraction fraction = new Fraction();
-      fraction.sumFraction(3,5,5,7);
-      fraction.toDiv(3,5,5,7);
-      fraction.toMov(3,7,8,9);
-      fraction.toSub(3,9,5,6);
-      fraction.doDoubleSum(3,5,5,7);
-      fraction.doDoubleDiv(3,5,5,7);
-      fraction.doDoubleMov(3,7,8,9);
-      fraction.doDoubleSub(3,9,5,6);
-
-  }*/
-
 }
