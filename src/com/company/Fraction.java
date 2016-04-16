@@ -63,22 +63,26 @@ public class Fraction {
     }
 
     public double toDoubleSum(Fraction first, Fraction second) {
-        double drob = (double) (first.getNum() * second.getZnum() + second.getNum() * first.getZnum()) / (double) (first.getZnum() * second.getZnum());
+        double drob = (double) (first.getNum() * second.getZnum() + second.getNum() * first.getZnum()) /
+                (double) (first.getZnum() * second.getZnum());
         return drob;
     }
 
     public double toDoubleSub(Fraction first, Fraction second) {
-        double drob = (double) (first.getNum() * second.getZnum() - second.getNum() * first.getZnum()) / (double) (first.getZnum() * second.getZnum());
+        double drob = (double) (first.getNum() * second.getZnum() - second.getNum() * first.getZnum()) /
+                (double) (first.getZnum() * second.getZnum());
         return drob;
     }
 
     public double toDoubleMov(Fraction first, Fraction second) {
-        double drob = (double) (first.getNum() * second.getNum()) / (double) (first.getZnum() * second.getZnum());
+        double drob = (double) (first.getNum() * second.getNum()) /
+                (double) (first.getZnum() * second.getZnum());
         return drob;
     }
 
     public double toDoubleDiv(Fraction first, Fraction second) {
-        double drob = (double) (first.getNum() * second.getZnum()) / (double) (first.getZnum() * second.getNum());
+        double drob = (double) (first.getNum() * second.getZnum()) /
+                (double) (first.getZnum() * second.getNum());
         return drob;
     }
 
@@ -88,17 +92,4 @@ public class Fraction {
         return getNum() + "/" + getZnum();
     }
 
-  /*  public static void main(String[] args) {
-        Fraction first = new Fraction(3,4);
-        Fraction second = new Fraction(5,6);
-      System.out.println(first.toString()+"+"+second.toString()+"="+first.add(first,second));
-        System.out.println(first.toString()+"-"+second.toString()+"="+first.sub(first,second));
-       System.out.println(first.toString()+"*"+second.toString()+"="+first.mov(first,second));
-       System.out.println(first.toString()+":"+second.toString()+"="+first.div(first,second));
-       System.out.println(first.toString()+"+"+second.toString()+"="+first.toDoubleSum(first,second));
-       System.out.println(first.toString()+"-"+second.toString()+"="+first.toDoubleSub(first,second));
-       System.out.println(first.toString()+"*"+second.toString()+"="+first.toDoubleMov(first,second));
-       System.out.println(first.toString()+":"+second.toString()+"="+first.toDoubleDiv(first,second));
-
-    }*/
 }
