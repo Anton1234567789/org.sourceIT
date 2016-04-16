@@ -19,9 +19,8 @@ public class FractionComplex {
         if (!(obj instanceof FractionComplex)){
             return false;
         }
-        FractionComplex c = (FractionComplex) obj;
-        return Double.compare(re,re1)==0 &&
-                Double.compare(im,im2)==0;
+        FractionComplex a = (FractionComplex) obj;
+        return this.re==a.re & this.im==a.im & this.re1==a.re1 & this.im2==a.im2;
     }
 
     public static void main(String[] args) {
@@ -32,9 +31,9 @@ public class FractionComplex {
         System.out.println(a.toString()+"-"+b.toString()+"="+a.sub(b));
         System.out.println(a.toString()+"*"+b.toString()+"="+a.mov(b));
         System.out.println(a.toString()+"/"+b.toString()+"="+a.div(b));
-        System.out.println(a.toString()+"/"+b.toString()+"="+a.toDoubleSum(b));
-        System.out.println(a.toString()+"/"+b.toString()+"="+a.toDoubleSub(b));;
-        System.out.println(a.toString()+"/"+b.toString()+"="+a.toDoubleMov(b));
+        System.out.println(a.toString()+"+"+b.toString()+"="+a.toDoubleSum(b));
+        System.out.println(a.toString()+"-"+b.toString()+"="+a.toDoubleSub(b));;
+        System.out.println(a.toString()+"*"+b.toString()+"="+a.toDoubleMov(b));
         System.out.println(a.toString()+"/"+b.toString()+"="+a.toDoubleDiv(b));
     }
 
