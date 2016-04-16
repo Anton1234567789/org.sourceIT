@@ -23,20 +23,6 @@ public class FractionComplex {
         return this.re==a.re & this.im==a.im & this.re1==a.re1 & this.im2==a.im2;
     }
 
-    public static void main(String[] args) {
-        FractionComplex a =new FractionComplex(3,4,2,3);
-        FractionComplex b =new FractionComplex(2,3,5,3);
-
-        System.out.println(a.toString()+"+"+b.toString()+"="+a.add(b));
-        System.out.println(a.toString()+"-"+b.toString()+"="+a.sub(b));
-        System.out.println(a.toString()+"*"+b.toString()+"="+a.mov(b));
-        System.out.println(a.toString()+"/"+b.toString()+"="+a.div(b));
-        System.out.println(a.toString()+"+"+b.toString()+"="+a.toDoubleSum(b));
-        System.out.println(a.toString()+"-"+b.toString()+"="+a.toDoubleSub(b));;
-        System.out.println(a.toString()+"*"+b.toString()+"="+a.toDoubleMov(b));
-        System.out.println(a.toString()+"/"+b.toString()+"="+a.toDoubleDiv(b));
-    }
-
     public FractionComplex(double re, double im,double re1, double im1){
         this.re = re;
         this.im = im;
@@ -55,37 +41,21 @@ public class FractionComplex {
 
     public  FractionComplex add(FractionComplex b){
         FractionComplex a = this;
-        /*double num = a.re *b.re1 + b.re *a.re1;
-        double denum = a.re *b.im2 +a.im *b.re1 -a.im *b.im2 +b.re *a.im2 +b.im *a.re1 -b.im *a.im2;
-        double numPlus = a.re1 *b.re1;
-        double denumPlus = a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2;*/
         return new FractionComplex(a.re *b.re1 + b.re *a.re1,a.re *b.im2 +a.im *b.re1 -a.im *b.im2 +b.re *a.im2 +b.im *a.re1 -b.im *a.im2,
                 a.re1 *b.re1,a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2);
 
     }
     public FractionComplex sub(FractionComplex b){
         FractionComplex a = this;
-        /*double num = a.re *b.re1 - b.re *a.re1;
-        double denum = a.re *b.im2 +a.im *b.re1 -a.im *b.im2 -b.re *a.im2 - b.im *a.re1 +b.im *a.im2;
-        double numPlus = a.re1 *b.re1;
-        double denumPlus = a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2;*/
         return new FractionComplex(a.re *b.re1 - b.re *a.re1,a.re *b.im2 +a.im *b.re1 -a.im *b.im2 -b.re *a.im2 - b.im *a.re1 +b.im *a.im2,
                 a.re1 *b.re1,a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2);
     }
     public FractionComplex mov(FractionComplex b){
         FractionComplex a =this;
-        /*double num =a.re *b.re;
-        double denum =  a.re*b.im+a.im*b.re-a.im*b.im;
-        double numPlus = a.re1*b.re1;
-        double denumPlus = a.re1*b.im2+ a.im2*b.re1-a.im2*b.im2;*/
         return new FractionComplex(a.re *b.re,a.re*b.im+a.im*b.re-a.im*b.im,a.re1*b.re1,a.re1*b.im2+ a.im2*b.re1-a.im2*b.im2);
     }
     public FractionComplex div(FractionComplex b){
         FractionComplex a = this;
-        /*double num=a.re*b.re1;
-        double denum =a.re*b.im2+ a.im*b.re1 -a.im*b.im2;
-        double numPlus = a.re1*b.re;
-        double denumPlus = a.re1*b.im+ a.im2*b.re-a.im2*b.im;*/
         return  new FractionComplex(a.re*b.re1,a.re*b.im2+ a.im*b.re1 -a.im*b.im2,a.re1*b.re,a.re1*b.im+ a.im2*b.re-a.im2*b.im);
     }
 
