@@ -32,12 +32,9 @@ public class FractionComplex {
 
     @Override
     public String toString() {
-        /*if(im ==0){return re +"";}
-        if(re ==0){return im +"i";}
-        if (im <0){return re + " - "+(-im)+"i";}
-        return "("+ re +"+"+ im +"i" +")"+"/"+"("+ re1 +"+"+ im2 +"i"+")";*/
         return "("+ re +"+"+ im +"i" +")"+"/"+"("+ re1 +"+"+ im2 +"i"+")";
     }
+
 
     public  FractionComplex add(FractionComplex b){
         FractionComplex a = this;
