@@ -56,32 +56,6 @@ public class FractionComplex {
         return  new FractionComplex(a.re*b.re1,a.re*b.im2+ a.im*b.re1 -a.im*b.im2,a.re1*b.re,a.re1*b.im+ a.im2*b.re-a.im2*b.im);
     }
 
-    public double toDoubleSum(FractionComplex b){
-        FractionComplex a = this;
-        double drob = ((double)(a.re *b.re1 + b.re *a.re1)+(double)(a.re *b.im2 +a.im *b.re1 -a.im *b.im2 +b.re *a.im2 +b.im *a.re1 -b.im *a.im2))/
-                ((double)(a.re1 *b.re1)+(double)(a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2));
-        return drob;
-    }
-
-    public double toDoubleSub(FractionComplex b){
-        FractionComplex a =this;
-        double drob = ((double)(a.re *b.re1 - b.re *a.re1)+(double)(a.re *b.im2 +a.im *b.re1 -a.im *b.im2 -b.re *a.im2 - b.im *a.re1 +b.im *a.im2))/
-                ((double)(a.re1 *b.re1)+(double)(a.re1 *b.im2 +a.im2 *b.re1 -a.im2 *b.im2));
-        return drob;
-    }
-
-    public double toDoubleMov(FractionComplex b){
-        FractionComplex a = this;
-        double drob = ((double)(a.re *b.re)+(double)(a.re*b.im+a.im*b.re-a.im*b.im))/
-                ((double)(a.re1*b.re1)+(double)(a.re1*b.im2+ a.im2*b.re1-a.im2*b.im2));
-        return drob;
-    }
-
-    public double toDoubleDiv(FractionComplex b){
-        FractionComplex a = this;
-        double drob = ((double)(a.re*b.re1)+(double)(a.re*b.im2+ a.im*b.re1 -a.im*b.im2))/((double)(a.re1*b.re)+(double)(a.re1*b.im+ a.im2*b.re-a.im2*b.im));
-        return drob;
-    }
 
 
 }

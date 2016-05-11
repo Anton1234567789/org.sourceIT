@@ -5,6 +5,10 @@ public class Fraction {
     int num;
     int denum;
 
+    public Fraction() {
+
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

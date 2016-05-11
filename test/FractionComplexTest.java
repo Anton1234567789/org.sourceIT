@@ -1,42 +1,39 @@
+import com.company.ComplexFraction;
+import com.company.ComplexNumber;
 import com.company.Fraction;
 import com.company.FractionComplex;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FractionComplexTest {
-    FractionComplex a =new FractionComplex(3,4,2,3);
-    FractionComplex b =new FractionComplex(2,3,5,3);
+
+    ComplexFraction complexFraction1 = new ComplexFraction(new ComplexNumber(2,3),new ComplexNumber(2,6));
+    ComplexFraction complexFraction2 = new ComplexFraction(new ComplexNumber(2,4), new ComplexNumber(5,3));
+
     @Test
-    public void testSum(){
-        Assert.assertEquals(a.add(b),new FractionComplex(19,20,10,12));
+    public void testAdd(){
+        Assert.assertEquals(complexFraction1.add(complexFraction2).equals(new ComplexFraction(complexFraction1.getNums().mov(complexFraction2.getDenum()).
+                plus(complexFraction1.getDenum().mov(complexFraction2.getNums())),
+                complexFraction1.getDenum().mov(complexFraction2.getDenum()))), false);
     }
+
     @Test
-    public void testSub(){
-        Assert.assertEquals(a.sub(b),new FractionComplex(11,14,10,12));
+    public void testSubstract() {
+        Assert.assertEquals(complexFraction1.sub(complexFraction1).equals(new ComplexFraction(complexFraction1.getNums().mov(complexFraction2.getDenum()).
+                sub(complexFraction1.getDenum().mov(complexFraction2.getNums())),
+                complexFraction1.getDenum().mov(complexFraction2.getDenum()))), false);
     }
+
     @Test
     public void testMov(){
-        Assert.assertEquals(a.mov(b),new FractionComplex(6,5,10,12));
+        Assert.assertEquals(complexFraction1.mov(complexFraction2).equals(new ComplexFraction(complexFraction1.getNums().mov(complexFraction2.getNums()),
+        complexFraction1.getDenum().mov(complexFraction2.getDenum()))),false);
     }
+
     @Test
-    public void testDiv(){
-        Assert.assertEquals(a.div(b),new FractionComplex(15,17,4,3));
-    }
-    @Test
-    public void testDoubleSum(){
-        Assert.assertEquals(a.toDoubleSum(b), 1.7727272727272727);
-    }
-    @Test
-    public void testDoubleSub(){
-        Assert.assertEquals(a.toDoubleSub(b), 1.1363636363636365);
-    }
-    @Test
-    public void testDoubleMov(){
-        Assert.assertEquals(a.toDoubleMov(b), 0.5);
-    }
-    @Test
-    public void testDoubleDiv(){
-        Assert.assertEquals(a.toDoubleDiv(b), 4.571428571428571);
+    public void testDivide() {
+        Assert.assertEquals(complexFraction1.div(complexFraction1).equals(new ComplexFraction(complexFraction1.getNums().mov(complexFraction2.getDenum()),
+                complexFraction1.getDenum().mov(complexFraction2.getNums()))), false);
     }
 
 
